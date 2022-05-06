@@ -163,7 +163,7 @@ qevd <- function(p, loc=0, scale=1, shape=0, threshold=0,
    type <- match.arg(type)
    type <- tolower(type)
 
-   if(scale <= 0) stop("qevd: invalid scale argument.  Must be > 0.")
+   if(scale <= 0) scale <- .0000000000000000001
 
    if(min(p, na.rm=TRUE) <= 0 || max(p, na.rm=TRUE) >= 1) stop("qevd: invalid p argument.  Must have 0 < p < 1.")
 
