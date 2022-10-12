@@ -77,7 +77,7 @@ pevd <- function(q, loc=0, scale=1, shape=0, threshold=0, lambda=1, npy,
    type <- tolower(type)
 
    if(is.element(type, c("exponential","gumbel")) && shape != 0) stop("pevd: invalid type argument for choice of threshold.")
-   if(scale <= 0) stop("pevd: invalid scale argument.  Must be > 0.")
+   if(scale <= 0) scale=.00000000000000001
    if(length(loc) > 1 || length(scale) > 1 || length(shape) > 1) stop("pevd: invalid parameter arguments.  Each must have length 1 only.")
    if(is.element(type, c("weibull","frechet"))) type <- "gev"
    else if(is.element(type, c("exponential", "beta","pareto"))) type <- "gp"
